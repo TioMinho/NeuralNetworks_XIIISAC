@@ -1,0 +1,16 @@
+# iPython Checkpoints #
+#######################
+.ipynb_checkpoints/
+
+# Latex Temporary Files #
+#########################
+slides/*
+!slides/*.pdf
+!slides/imgs/*
+
+# Mac OS strange folders #
+##########################
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
