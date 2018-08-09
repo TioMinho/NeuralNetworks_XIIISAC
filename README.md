@@ -1,8 +1,6 @@
 # Neural Networks - A Practical Introduction
 by _Minho Menezes_  
 
----
-
 <table>
   <tr>
     <td><a href="http://www.petcomp.ufc.br/sac"><img src="imgs/sac-logo.png" alt="Logotipo da SAC" width="125px"/></a></td>
