@@ -76,25 +76,15 @@ class Tools:
 		fig = figure()
 		ax = fig.add_subplot(111, projection='3d')
 
-		xx, yy = meshgrid(linspace(X[0,:].min()-1, X[0,:].max()+1, 50), 
-						  linspace(X[0,:].min()-1, X[0,:].max()+1, 50))
+		xx, yy = meshgrid(linspace(X[0,:].min()-10, X[0,:].max()+10, 50), 
+						  linspace(X[0,:].min()-10, X[0,:].max()+10, 50))
 		data = vstack([xx.ravel(), yy.ravel()])
 
-		z = model.predict(data)
+		z = model.forward(data)[-1]
 		
 		zz = z.reshape(xx.shape)
 
 		ax.plot_wireframe(xx,yy,zz)
-		
-
-		if(n_classes > 1):
-			for i in range(0,n_classes):
-				class_idx = where(y[i,:] == 1)
-				ax.scatter3D(X[0,class_idx], X[1,class_idx], y[i,class_idx], marker="o", color=colorpad[i], edgecolor="#2A2A2A")
-		else:
-			for i in range(0,n_classes+1):
-				class_idx = where(y == i)
-				ax.scatter3D(X[0,class_idx], X[1,class_idx], y[class_idx], marker="o", color=colorpad[i], edgecolor="#2A2A2A")
 
 		title(p_title); xlabel(labels[0]); ylabel(labels[1])
 
